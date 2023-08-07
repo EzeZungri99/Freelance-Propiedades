@@ -27,7 +27,7 @@ export default function Example() {
   });
 
   useEffect(()=>{
-    console.log(routeDashboard.replace(/"/g, '') == 2, routeDashboard.replace(/"/g, ''));
+    // console.log(routeDashboard.replace(/"/g, '') == 2, routeDashboard.replace(/"/g, ''));
     if(typeof window !== 'undefined'){
       const routeDashboard = window.localStorage.getItem('routeDashboard')
       if (routeDashboard.replace(/"/g, '') == 1) {

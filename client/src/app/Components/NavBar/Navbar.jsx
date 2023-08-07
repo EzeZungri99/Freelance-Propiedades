@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 import ProfileUser from "../../ProfileUser/ProfileUser";
 import { useLocalStorage } from "react-use";
+import { useEffect } from "react";
 
 const navigation = [
   {
@@ -40,6 +41,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const [navbarBackground, setNavbarBackground] = useState("bg-transparent")
   const [showProfile, setShowProfile] = useState(false);
   const [routeDashboard, setRouteDashboard] = useLocalStorage(
     "routeDashboard",
@@ -48,6 +50,24 @@ export default function Example() {
 
   const session = useSession();
   console.log(session);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setNavbarBackground("bg-black"); // Reemplaza 'your-color' con la clase de color que deseas aplicar al Navbar al desplazarse hacia abajo
+      } else {
+        setNavbarBackground("bg-transparent");
+      }
+    };
+        // Agregar el evento de desplazamiento al montar el componente
+        window.addEventListener("scroll", handleScroll);
+
+        // Remover el evento de desplazamiento al desmontar el componente
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, []);
+    
 
 
   const autenticated = () => {
@@ -64,12 +84,13 @@ export default function Example() {
   return (
     <Disclosure
       as="nav"
-      className="bg-black fixed top-0 left-0 right-0 z-50 h-16"
+      className={`${navbarBackground} fixed top-0 left-0 right-0 z-50 h-24 `}
     >
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
+          <div className="mx-auto  px-2 sm:px-6 lg:px-8 mt-4 w-full ">
+            {/* clases comentadas max-w-7xl */}
+            <div className="relative flex h-16 items-center justify-center ">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -101,14 +122,15 @@ export default function Example() {
                   </div>
                 </div>
               </Link>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch ml-16 w-full ">
+                {/* clase comentada sm:justify-start */}
                 <div className="hidden sm:ml-6 sm:block justify-center align-center">
                   <div className="flex space-x-4">
                     {navigation.map(({ label, route }) => (
                       <Link
                         key={route}
                         href={route}
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                        className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  font-medium text-base"
                       >
                         {label}
                       </Link>

@@ -2,12 +2,11 @@
 import Image from 'next/image';
 import Carrousel from './Components/carrousel';
 import CardConteiner from './Components/CardsConteiner/CardsConteiner';
-import { Provider } from 'react-redux';
-import store from '../redux/store';
 import axios from "axios"
 import { ThemeProvider } from '@material-tailwind/react';
 import Testimonials from "./Components/Testimonials/testimonials"
 import SubirArchivo from "./subirArchivo/subirArchivo"
+import ContactHome from "../app/Components/ContactHome/ContactHome"
 
 export default function Home() {
   const images = [
@@ -20,12 +19,13 @@ export default function Home() {
   return (
     <div>
       <ThemeProvider>
-      <Provider store={store}>
+
         <Carrousel />
         {/* <SubirArchivo/> */}
         <CardConteiner />
         <Testimonials/>
-      </Provider>
+        <ContactHome/>
+
       </ThemeProvider>
     </div>
   );
