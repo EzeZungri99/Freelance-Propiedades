@@ -1,8 +1,8 @@
 export const validateForm = (formData) => {
   let errors = {};
 
-  if (!formData.firstName) {
-    errors.firstName = 'Nombre vacío';
+  if (!formData.name) {
+    errors.name = 'Nombre vacío';
   } else if (!/^[a-zA-Z\s]+$/.test(formData.firstName)) {
     errors.firstName = 'Nombre inválido';
   }
@@ -16,7 +16,7 @@ export const validateForm = (formData) => {
   if (!formData.email) {
     errors.email = 'Email vacío';
   } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-    errors.email = 'Email inválido';
+    errors.email = 'Correo invalido, usa nombre@dominio.com';
   }
 
   if (!formData.phone) {
@@ -43,11 +43,11 @@ export const validateForm = (formData) => {
     errors.address = 'Dirección inválida';
   }
 
-  if (!formData.timeSlot) {
-    errors.timeSlot = 'Franja horaria vacía';
-  } else if (!/^[a-zA-Z0-9\s.,!?-]+$/.test(formData.timeSlot)) {
-    errors.timeSlot = 'Franja horaria inválida';
-  }
+  // if (!formData.callTime) {
+  //   errors.callTime = 'Franja horaria vacía';
+  // } else if (!/^[a-zA-Z0-9\s.,!?-]+$/.test(formData.callTime)) {
+  //   errors.callTime = 'Franja horaria inválida';
+  // }
 
   return errors;
 };

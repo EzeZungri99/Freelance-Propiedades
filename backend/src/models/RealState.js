@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING(3000),
+      type: DataTypes.STRING(10000),
       allowNull: false,
     },
     disposition: {
@@ -46,8 +46,20 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    operations: {
-      type: DataTypes.JSONB,
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    period: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    currency: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    operation_type: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     orientation: {
@@ -125,6 +137,14 @@ module.exports = (sequelize) => {
     isReserved:{
       type: DataTypes.BOOLEAN,
       defaultValue: false,
+    },
+    geo_long:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    geo_lat:{
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   });
 };

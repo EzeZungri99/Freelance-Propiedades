@@ -1,7 +1,7 @@
 export const validateForm = (formData) => {
   let errors = {};
 
-  if (!formData.firstName) {
+  if (!formData.name) {
     errors.firstName = 'Nombre vacío';
   } else if (!/^[a-zA-Z\s]+$/.test(formData.firstName)) {
     errors.firstName = 'Nombre inválido';
@@ -16,7 +16,7 @@ export const validateForm = (formData) => {
   if (!formData.email) {
     errors.email = 'Email vacío';
   } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-    errors.email = 'Email inválido';
+    errors.email = 'Correo invalido, usa nombre@dominio.com';
   }
 
   if (!formData.phone) {

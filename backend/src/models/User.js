@@ -10,22 +10,37 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true
     },
+    provider:{
+      type:DataTypes.STRING,
+      defaultValue: 'credentials'
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+    disabled: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     },
-    password: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false
     },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    image: {
+      type:DataTypes.STRING(2080),
+      allowNull: true
+    },
     rol: {
         type: DataTypes.STRING,
-        allowNull: false
-    }
+        defaultValue: 'usuario',
+    },
+    favorites: {
+      type: DataTypes.ARRAY(DataTypes.JSONB),
+      allowNull: true,
+  },
   });
 };
