@@ -2,7 +2,6 @@
 
 'use client'
 import { StarIcon } from "@heroicons/react/20/solid";
-import { getPropById } from '../../redux/actions'
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
