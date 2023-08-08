@@ -17,10 +17,11 @@ export default function BtnReservar(props) {
 
     // Si hay una sesión, puedes obtener el id del usuario
     const userId = session.data.user.id;
+    const userEmail = session.data.user.email;
 
     try {
       const response = await axios.post(
-        `http://localhost:3001/createOrder/${id}`,
+        `http://localhost:3001/createOrder/${id}`, //createContact o hacerla acá, quizás no hace falta que sea un post
         {
           userId: userId,
         }
