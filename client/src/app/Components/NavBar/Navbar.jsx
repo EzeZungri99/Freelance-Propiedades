@@ -7,6 +7,7 @@ import { useSession, signOut } from "next-auth/react";
 import ProfileUser from "../../ProfileUser/ProfileUser";
 import { useLocalStorage } from "react-use";
 import { useEffect } from "react";
+import style from "./Navbar.module.css"
 
 const navigation = [
   {
@@ -84,7 +85,7 @@ export default function Example() {
   return (
     <Disclosure
       as="nav"
-      className={`${navbarBackground} fixed top-0 left-0 right-0 z-50 h-24 `}
+      className={`${navbarBackground} fixed top-0 left-0 right-0 h-24 ${style.navbar} `}
     >
       {({ open }) => (
         <>
