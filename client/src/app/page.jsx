@@ -4,9 +4,10 @@ import Carrousel from './Components/carrousel';
 import CardConteiner from './Components/CardsConteiner/CardsConteiner';
 import axios from "axios"
 import { ThemeProvider } from '@material-tailwind/react';
-import Testimonials from "./Components/Testimonials/testimonials"
-import SubirArchivo from "./subirArchivo/subirArchivo"
-import ContactHome from "../app/Components/ContactHome/ContactHome"
+import Testimonials from "./Components/Testimonials/testimonials";
+import SubirArchivo from "./subirArchivo/subirArchivo";
+import ContactHome from "../app/Components/ContactHome/ContactHome";
+import SoldProps from "../app/Components/soldProps";
 
 export default function Home() {
   const images = [
@@ -25,6 +26,7 @@ export default function Home() {
         <CardConteiner />
         <Testimonials/>
         <ContactHome/>
+        <SoldProps/>
 
       </ThemeProvider>
     </div>
