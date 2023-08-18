@@ -1,9 +1,10 @@
 "use client";
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Gallery from "./gallery";
 import Map from "./map";
 import BtnReservar from "./btnReservar";
 import BtnFav from "./btnFav";
+
 
 const fetchPropId = async (id) => {
   const res = await fetch(`http://localhost:3001/realState/${id}`);
@@ -13,6 +14,18 @@ const fetchPropId = async (id) => {
 export default async function Example({ params }) {
   const { id } = params;
   const propiedad = await fetchPropId(id);
+  // const [propiedad, setPropiedad] = useState(null);
+
+  // useEffect(() => {
+  //   if (!propiedad && id) {
+  //     const fetchProperty = async () => {
+  //       const response = await fetchPropId(id);
+  //       setPropiedad(response);
+  //     };
+  
+  //     fetchProperty();
+  //   }
+  // }, [id, propiedad]);
 
   const product = {
     name: propiedad.address,
